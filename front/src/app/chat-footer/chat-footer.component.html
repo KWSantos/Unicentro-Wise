@@ -1,0 +1,33 @@
+<!-- Aqui é o footer do chat, a parte do form do chat, com o botão e tudo, não sei se precisa colocar head e css, realmente nao faço ideia -->
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="chat-footer.component.css" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+
+</head>
+<body>
+  <div class="panel-footer"> 
+    <form id="message-form" (ngSubmit)="sendMessage($event)">
+      <div class="input-group">
+        <input type="text" id="user-input" class="form-control form" name="mensagem" placeholder="Digite aqui sua mensagem">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-send" type="submit" id="button-send" autofocus><i class="bx bx-send"></i></button>
+          </span>
+      </div>
+    </form>
+  </div>
+</body>

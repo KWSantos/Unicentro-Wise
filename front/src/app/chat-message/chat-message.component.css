@@ -263,14 +263,7 @@ body {
   /*--------------------------------------------------------------
   # inicio Section
   --------------------------------------------------------------*/
-  #inicio {
-    width: 100%;
-    height: 100vh;
 
-    background-size: cover;
-    position: relative;
-  }
-  
   @media (min-width: 992px) {
     #inicio {
       padding-left: 160px;
