@@ -1,0 +1,39 @@
+<!-- Tela das mensagens, aqui o html cria as classes certas pra cada mensagem
+ dependendo de onde elas são usando um atributo FROM que é de onde a mensagem ta saindo -->
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/Unicentro-Wise/front/src/app/chat/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="message.component.css" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+
+</head>
+
+<body>
+  <!-- Isso aqui é pra escolher a classe que vai ser criada dependendo do from -->
+  <div
+    [ngClass]="{
+      'chat-content user': message.from === 'user',
+      'chat-left': message.from === 'chat'
+    }">
+    <div
+    [ngClass]="{
+      'chat-content': message.from === 'chat'
+    }">
+      <!-- Isso chama o texto da mensagem -->
+      <p>{{ message.text }}</p>
+    </div>
+  </div>
+</body>
