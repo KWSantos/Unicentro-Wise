@@ -1,8 +1,7 @@
 <div class="login-card">
 
     <div class="card-title">
-        <h1>Login</h1>
-        <span>Não tem uma conta? <a routerLink="/register">Cadastre-se</a></span>
+        <h1>Cadastre-se</h1>
     </div>
     <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input name="email" type="email" formControlName="email" placeholder="Email">

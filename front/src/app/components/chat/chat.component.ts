@@ -13,4 +13,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './chat.component.css'
 })
 export class ChatComponent {
+  
 }
