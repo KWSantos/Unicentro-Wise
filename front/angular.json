@@ -24,6 +24,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "/Unicentro-Wise/front/src/assets/"
               }
             ],
             "styles": [
