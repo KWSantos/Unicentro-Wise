@@ -1,16 +1,17 @@
-* {
-    box-sizing: border-box;
-}
+
 
 :host {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 1);
+    background-color:  #F5E79F;
 
 }
-
+a {
+    color: #F7BE22;
+  }
+  
 .login-card {
     display: flex;
     flex-direction: column;
@@ -18,7 +19,7 @@
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     background-color: #ffffff;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 40%;
 
 }
@@ -30,15 +31,15 @@
     border: none;
     outline: none;
     padding: 12px 20px;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 .login-card button {
-    background-color: #4796ff;
+    background-color:#F7BE22;
     color: #ffffff;
     font-size: 16px;
     outline: none;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     padding: 8px 15px;
     width: 100%;
@@ -46,6 +47,7 @@
 
 
 .card-title h1 {
+    font-family: "Open Sans", sans-serif;
     font-size: 26px;
     font-weight: bold;
 }
