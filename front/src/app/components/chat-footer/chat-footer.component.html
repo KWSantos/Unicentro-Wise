@@ -15,15 +15,13 @@
   <link href="./../../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"  type="text/css"> 
   
   <link href="chat-footer.component.css" rel="stylesheet">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
 
 </head>
 <body>
   <div class="panel-footer"> 
     <form id="message-form" (ngSubmit)="sendMessage($event)">
       <div class="input-group">
-        <input type="text" id="user-input" class="form-control form" name="mensagem" placeholder="Digite aqui sua mensagem">
+        <input type="text" [(ngModel)]="message" id="user-input" name="message" class="form-control form" placeholder="Digite aqui sua mensagem">
           <span class="input-group-btn">
             <button class="btn btn-primary btn-send" type="submit" id="button-send" autofocus><i class="bx bx-send"></i></button>
           </span>

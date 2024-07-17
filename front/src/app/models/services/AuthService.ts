@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { app, auth } from "../../config/firebaseConfig";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth, onAuthStateChanged, User } from "firebase/auth";
 
 @Injectable({
     providedIn: 'root'
@@ -33,4 +33,9 @@ export class AuthService {
           });
         });
       }
+
+  getUserId() {
+    let user: User | null = auth.currentUser;
+    return user?.uid
+  }
 }

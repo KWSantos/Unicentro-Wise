@@ -35,7 +35,18 @@ export class UserService {
         }
     }
 
-    sendMessage(userId: string, message: string) {
+    sendMessage(userId: string | undefined, message: string) {
+        const refMessage = ref(db, "messages/" + userId)
+        const newMessage = push(refMessage)
 
+        const date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+
+        set(newMessage, {
+            userId: userId,
+            message: message,
+            time: `${hours}:${minutes}`
+        })
     }
 }
