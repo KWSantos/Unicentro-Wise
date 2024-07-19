@@ -1,1 +1,33 @@
-<p>chat-history works!</p>
+<!-- Esse é o chat-messages, tem a função de chamar as mensagens pra dentro do container com um for,
+ ele é chamado dentro do chatComponent e chama o Messages -->
+
+ <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <link href="./../../../assets/vendor/aos/aos.css" type="text/css">
+    <link href="./../../../assets/vendor/bootstrap/css/bootstrap.min.css"  type="text/css">
+    <link href="./../../../assets/vendor/bootstrapIcons/bootstrapIcons.css"  type="text/css">
+    <link href="./../../../assets/vendor/boxicons/css/boxicons.min.css"  type="text/css">
+    <link href="./../../../assets/vendor/glightbox/css/glightbox.min.css"   type="text/css">
+    <link href="./../../../assets/vendor/swiper/swiper-bundle.min.css" type="text/css"> 
+  
+    <link href="chat-history.component.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+  
+  </head>
+  
+  <body>
+    <nav id="navbar" class="navbar nav-menu">
+        <ul >
+            <ng-container *ngFor="let chat of chat;  let i = index">
+                <li><a><i class="bx bx-message-square-dots"></i> <span>{{chat.nome}}</span></a></li>
+            </ng-container>
+          <li><a class="nav-link scrollto"><i class="bx bx-message-square-add"></i> <span>Nova conversa</span></a></li>
+        </ul>
+      </nav>
+</body>
