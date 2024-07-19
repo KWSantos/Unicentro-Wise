@@ -17,7 +17,7 @@ export interface Message {
 })
 export class ChatMessageComponent {
   // Messages só serve pra tapar buraco, ignore, é só pra rodar as telas, totalmente diferente 
-  messages: Message[] = [{ from: 'chat', text: 'dasdads' }, {from: 'user', text: 'dasdasda'}, {from:'user', text:'AAAAAAAAA'}, {from:'user', text:'AAAAAAAAA'}, {from:'user', text:'AAAAAAAAA'}, {from:'user', text:'AAAAAAAAA'}, {from:'user', text:'AAAAAAAAA'}, {from:'user', text:'AAAAAAAAA'}];
+  messages: Message[] = [{from: "user", text : "oi"}, {from: "chat", text:"kaka"}];
 
   constructor () {
   }

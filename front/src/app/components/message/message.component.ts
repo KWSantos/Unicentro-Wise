@@ -20,7 +20,6 @@ export class MessageComponent {
   @Input() message: Message = { from: '', text: '' };
 
   constructor () {
-    this.message.from = "chat";
-    this.message.text = "adasda";
+
   }
 }
