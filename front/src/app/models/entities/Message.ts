@@ -2,13 +2,20 @@ export default class Message {
 
     private _id!: number;
 
-    constructor(private _idUser: number, private _time: any, private _message: string) {}
+    constructor(private _from: string, private _idUser: number, private _time: any, private _message: string) {}
 
     public get id(): number {
         return this._id;
     }
     public set id(value: number) {
         this._id = value;
+    }
+    
+    public get from(): string {
+        return this._from;
+    }
+    public set from(value: string) {
+        this._from = value;
     }
 
     public get message(): string {

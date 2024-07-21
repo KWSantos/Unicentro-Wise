@@ -33,8 +33,8 @@
     [ngClass]="{
       'chat-content': message.from === 'chat'
     }">
-      <p>{{ message.text }}</p>
+      <p>{{ message.message }}</p>
     </div>
-    <p *ngIf = "message.from === 'user'">{{ message.text }}</p>
+    <p *ngIf = "message.from === 'user'">{{ message.message }}</p>
   </div>
 </body>
