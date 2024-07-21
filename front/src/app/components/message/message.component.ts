@@ -1,12 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import Message from '../../models/entities/Message';
+import { AuthService } from '../../models/services/AuthService';
 
-
-// Fiz uma interface aqui só pra tapar buraco tbm
-export interface Message {
-  from: string
-  text: string
-}
 
 @Component({
   selector: 'app-message',
@@ -16,10 +12,9 @@ export interface Message {
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
-  // Só pra tapar buraco e rodar a tela pt.454 :)
-  @Input() message: Message = { from: '', text: '' };
-
-  constructor () {
-
+  @Input() message!: Message;
+  userId: string | undefined;
+  constructor (private readonly authService: AuthService) {
+    this.userId = authService.getUserId();
   }
 }

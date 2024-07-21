@@ -1,6 +1,5 @@
 import { get, push, ref, set, update } from "firebase/database";
 import { db } from "../../config/firebaseConfig";
-import { AuthService } from "./AuthService";
 import { Injectable } from "@angular/core";
 
 @Injectable({
@@ -44,6 +43,7 @@ export class UserService {
         let minutes = date.getMinutes();
 
         set(newMessage, {
+            from: "user",
             userId: userId,
             message: message,
             time: `${hours}:${minutes}`
