@@ -5,7 +5,36 @@
     </div>
     <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input name="email" type="email" formControlName="email" placeholder="Email">
+        <div *ngIf="((errorControl['email'].touched) || (errorControl['email'].dirty) && (errorControl['email'].errors))">
+            <span *ngIf="errorControl['email'].hasError('required')">
+                <i class="bx bx-error-circle"></i>
+                Email é obrigatório!
+            </span>
+            <span *ngIf="errorControl['email'].hasError('email')">
+                <i class="bx bx-error-circle"></i>
+                Email precisa estar no formato correto!
+            </span></div>
         <input type="password" formControlName="password" placeholder="Senha">
+        <div *ngIf="((errorControl['password'].touched) || (errorControl['password'].dirty) && (errorControl['password'].errors))">
+            <span *ngIf="errorControl['password'].hasError('required')">
+                <i class="bx bx-error-circle"></i>
+                Senha é obrigatória!
+            </span>
+            <span *ngIf="errorControl['password'].hasError('minlength')">
+                <i class="bx bx-error-circle"></i>
+                Senha precisa ter no mínimo 6 caracteres!
+            </span></div>
+        <input type="password" formControlName="passwordConfirm" placeholder="Confirme a senha">
+        <div *ngIf="((errorControl['passwordConfirm'].touched) || (errorControl['passwordConfirm'].dirty) && (errorControl['passwordConfirm'].errors || loginForm.hasError('areNotEqual')))">
+            <span *ngIf="errorControl['passwordConfirm'].hasError('required')">
+                <i class="bx bx-error-circle"></i>
+                Por favor confirme sua senha!
+            </span>
+            <span *ngIf="loginForm.hasError('areNotEqual')">
+                <i class="bx bx-error-circle"></i>
+                As senhas não coincidem!
+            </span>
+        </div>
         <button>Cadastrar</button>
     </form>
 

@@ -58,3 +58,7 @@ a {
     font-weight: bold;
   }
   
+.error{
+    color: red;
+    font-size: 11pt;
+}
