@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../models/services/UserService';
 import { AuthService } from '../../models/services/AuthService';
@@ -15,11 +15,14 @@ import { FormsModule } from '@angular/forms';
 
 export class ChatFooterComponent {
 
-  message!: string;
-  constructor(private userService: UserService, private authService: AuthService){}
+  message: string = '';
+  @Output() sendMessageEvent = new EventEmitter<string>();
 
-  sendMessage ($event: Event): void { 
-    const userId = this.authService.getUserId()
-    this.userService.sendMessage(userId, this.message)
+  sendMessage(event: Event) {
+    event.preventDefault();
+    if (this.message.trim()) {
+      this.sendMessageEvent.emit(this.message);
+      this.message = '';
+    }
   }
 }

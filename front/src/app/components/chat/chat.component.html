@@ -14,26 +14,22 @@
 </head>
 
 <body>
+  <!-- ======= Mobile nav toggle button ======= -->
 
-    <!-- ======= Mobile nav toggle button ======= -->
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+    <app-chat-history></app-chat-history>
+  </header><!-- End Header -->
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="d-flex flex-column justify-content-center">
-  
-    <app-chat-history/>
-  
-    </header><!-- End Header -->
-  
-    <!-- ======= inicio Section ======= -->
-    <section id="inicio" class="d-flex flex-column justify-content-center">
-      <div class="container" data-aos="zoom-in" data-aos-delay="100">
-        <h1>UNICENTRO WISE</h1>
-        <p>Seu chatbot para dúvidas sobre a Universidade Estadual do Centro-Oeste</p>
-      </div>
-    </section><!-- End inicio -->
-  
+  <!-- ======= inicio Section ======= -->
+  <section id="inicio" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>UNICENTRO WISE</h1>
+      <p>Seu chatbot para dúvidas sobre a Universidade Estadual do Centro-Oeste</p>
+    </div>
+  </section><!-- End inicio -->
+
   <main id="main">
-  
     <!-- ======= chatbot Section ======= -->
     <section id="chatbot" class="chatbot">
       <div class="container" data-aos="fade-up">
@@ -47,36 +43,31 @@
               <div class="chats">
                 <div class="messsagesContainer" id="messsagesContainer" class="ps-container ps-theme-default ps-active-y" style="overflow-y: scroll !important; height:400px !important;">
                   <!-- Essa é a tentativa de chamar o container do chat aqui pra dentro -->
-                  <app-chat-message />
+                  <app-chat-messages [messages]="messages"></app-chat-messages>
                 </div>
-              </div>  
-            </div>          
+              </div>
+            </div>
           </div>
           <!-- End Panel Chat -->
-          <app-chat-footer/>
+          <app-chat-footer (sendMessageEvent)="sendMessage($event)"></app-chat-footer>
         </div>
       </div>
     </section>
+  </main><!-- End #main -->
 
-</main><!-- End #main -->
-  
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-      <div class="container">
-        <h3>Créditos</h3>
-        <div class="social-links">
-          <a href="https://github.com/KWSantos" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://github.com/vborgex" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://github.com/LopesBrendinha" class="github"><i class="bx bxl-github"></i></a>
-        </div>
-
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Créditos</h3>
+      <div class="social-links">
+        <a href="https://github.com/KWSantos" class="github"><i class="bx bxl-github"></i></a>
+        <a href="https://github.com/vborgex" class="github"><i class="bx bxl-github"></i></a>
+        <a href="https://github.com/LopesBrendinha" class="github"><i class="bx bxl-github"></i></a>
       </div>
-    </footer><!-- End Footer -->
-  
+    </div>
+  </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
-  </body>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</body>
 
   </html>

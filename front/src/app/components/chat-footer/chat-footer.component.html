@@ -18,13 +18,13 @@
 
 </head>
 <body>
-  <div class="panel-footer"> 
+  <div class="panel-footer">
     <form id="message-form" (ngSubmit)="sendMessage($event)">
       <div class="input-group">
         <input type="text" [(ngModel)]="message" id="user-input" name="message" class="form-control form" placeholder="Digite aqui sua mensagem">
-          <span class="input-group-btn">
-            <button class="btn btn-primary btn-send" type="submit" id="button-send" autofocus><i class="bx bx-send"></i></button>
-          </span>
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-send" type="submit" id="button-send" autofocus><i class="bx bx-send"></i></button>
+        </span>
       </div>
     </form>
   </div>

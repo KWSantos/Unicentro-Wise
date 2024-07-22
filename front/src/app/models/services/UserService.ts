@@ -34,19 +34,20 @@ export class UserService {
         }
     }
 
-    sendMessage(userId: string | undefined, message: string) {
-        const refMessage = ref(db, "messages/" + userId)
-        const newMessage = push(refMessage)
+    async sendMessage(userId: string | undefined, message: string, conversationId: string) {
+        
+        const refConversation = ref(db, "messages/" + userId + "/" + conversationId);
+        const newMessage = push(refConversation);
 
         const date = new Date();
         let hours = date.getHours();
         let minutes = date.getMinutes();
 
-        set(newMessage, {
+        await set(newMessage, {
             from: "user",
             userId: userId,
             message: message,
             time: `${hours}:${minutes}`
-        })
+        });
     }
 }

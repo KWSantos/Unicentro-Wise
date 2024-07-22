@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
 import { CommonModule } from '@angular/common';
 import { MessageService } from '../../models/services/MessageService';
 import { AuthService } from '../../models/services/AuthService';
-import Message from '../../models/entities/Message';
-
 
 @Component({
-  selector: 'app-chat-message',
+  selector: 'app-chat-messages',
   standalone: true,
   imports: [MessageComponent, CommonModule],
   providers: [MessageService, AuthService],
@@ -15,18 +13,13 @@ import Message from '../../models/entities/Message';
   styleUrls: ['./chat-message.component.css']
 })
 
-export class ChatMessageComponent implements OnInit {
-  messages: Message[] = [];
-  userId: string | undefined;
+export class ChatMessageComponent implements OnChanges {
+  @Input() messages: any[] | undefined;
 
-
-  constructor(private messageService: MessageService, private authService : AuthService) { }
-
-  ngOnInit(): void {
-    this.userId = this.authService.getUserId();
-
-    if (this.userId) {
-      this.messages = this.messageService.loadMessage(this.userId);
+  ngOnChanges() {
+    const messagesContainer = document.getElementById('messages');
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
   }
 
