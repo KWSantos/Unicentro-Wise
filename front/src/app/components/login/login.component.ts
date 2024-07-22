@@ -4,11 +4,12 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../models/services/AuthService';
 import { UserService } from '../../models/services/UserService';
 import { ErrorService } from '../../models/services/ErrorService';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ ReactiveFormsModule, RouterModule],
+  imports: [ ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers: [AuthService, ErrorService]
@@ -22,6 +23,10 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   })
+
+  get errorControl(){
+    return this.loginForm.controls
+  }
 
   onSubmit() {
     if(this.loginForm.valid){

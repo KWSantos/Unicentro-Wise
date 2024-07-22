@@ -1,26 +1,37 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../models/services/AuthService';
 import { UserService } from '../../models/services/UserService';
 import { ErrorService } from '../../models/services/ErrorService';
+import { CommonModule } from '@angular/common';
+import { PasswordValidator } from '../../validators/passwordValidator';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ ReactiveFormsModule, RouterModule],
+  imports: [ ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
   providers: [AuthService, UserService, ErrorService]
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
+  loginForm!: FormGroup;
   
-  constructor(private authService: AuthService, private userService: UserService, private router: Router, private error: ErrorService) { }
+  constructor(private authService: AuthService, private formBuilder: FormBuilder ,private userService: UserService, private router: Router, private error: ErrorService) { }
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        passwordConfirm: new FormControl('', [Validators.required])
+    }, {
+      validators: [PasswordValidator.matchPassword]
+    })
+  }
 
-  protected loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
-  })
+  get errorControl(){
+    return this.loginForm.controls
+  }
 
   onSubmit() {
     if(this.loginForm.valid){
