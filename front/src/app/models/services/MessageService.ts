@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { db } from "../../config/firebaseConfig";
-import { get, onValue, push, ref } from 'firebase/database';
+import { get, push, ref } from 'firebase/database';
 
 @Injectable({
   providedIn: 'root'
