@@ -7,6 +7,7 @@ import { ChatHistoryComponent } from '../chat-history/chat-history.component';
 import { AuthService } from '../../models/services/AuthService';
 import { MessageService } from '../../models/services/MessageService';
 import { UserService } from '../../models/services/UserService';
+import { ChatService } from '../../models/services/ChatService';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ChatComponent {
   conversationId!: any;
   messages!: any[];
 
-  constructor(private authService: AuthService, private messageService: MessageService, private userService: UserService) {}
+  constructor(private authService: AuthService, private messageService: MessageService, private userService: UserService, private chatService: ChatService) {}
 
   async ngOnInit() {
     this.conversationId = await this.messageService.startNewConversation(this.userId);
@@ -32,6 +33,7 @@ export class ChatComponent {
 
   async sendMessage(message: string) {
     await this.userService.sendMessage(this.userId, message, this.conversationId);
+    await this.chatService.sendMessage(this.userId, message, this.conversationId);
     this.loadMessages();
   }
 
