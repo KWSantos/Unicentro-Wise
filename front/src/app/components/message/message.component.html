@@ -29,12 +29,12 @@
       'chat-content user': message.from === 'user',
       'chat-left': message.from === 'chat'
     }">
-    <div class='chat-content' *ngIf= "message.from==='chat'"
+    <div class='chat-content' *ngIf="message.from === 'chat'"
     [ngClass]="{
       'chat-content': message.from === 'chat'
     }">
       <p>{{ message.message }}</p>
     </div>
-    <p *ngIf = "message.from === 'user'">{{ message.message }}</p>
+    <p *ngIf="message.from === 'user'">{{ message.message }}</p>
   </div>
 </body>

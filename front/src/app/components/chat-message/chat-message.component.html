@@ -22,12 +22,9 @@
 </head>
 
 <body>
-        <div class="messages" id="messages">
-          <ng-container *ngFor="let message of messages">
-            <app-message
-              class="block"
-              [message]="message"
-            />
-          </ng-container>
-        </div> 
+  <div class="messages" id="messages">
+    <ng-container *ngFor="let message of messages">
+      <app-message class="block" [message]="message"></app-message>
+    </ng-container>
+  </div>
 </body>

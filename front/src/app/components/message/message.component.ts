@@ -12,9 +12,5 @@ import { AuthService } from '../../models/services/AuthService';
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
-  @Input() message!: Message;
-  userId: string | undefined;
-  constructor (private readonly authService: AuthService) {
-    this.userId = authService.getUserId();
-  }
+  @Input() message: any;
 }
