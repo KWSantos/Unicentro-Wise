@@ -1,17 +1,39 @@
-import { Component } from '@angular/core';
-import { MessageComponent } from '../message/message.component';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-export interface Chats {
-  nome: string
+import { Router } from '@angular/router';
+import { MessageService } from '../../models/services/MessageService';
+import { AuthService } from '../../models/services/AuthService';
+
+interface Chat {
+  id: string;
+  messages: any[];
 }
 
 @Component({
   selector: 'app-chat-history',
   standalone: true,
-  imports: [MessageComponent,CommonModule],
+  imports: [CommonModule],
   templateUrl: './chat-history.component.html',
-  styleUrl: './chat-history.component.css'
+  styleUrls: ['./chat-history.component.css']
 })
-export class ChatHistoryComponent {
-  chat: Chats[] = [{nome: "Quais editais?"} ,{nome:"Sei la"} ]
+export class ChatHistoryComponent implements OnInit {
+  userId = this.authService.getUserId();
+  conversations: Chat[] = [];
+
+  @Output() chatSelected = new EventEmitter<string>();
+
+  constructor(
+    private messageService: MessageService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  async ngOnInit() {
+    const conversationsData = await this.messageService.getConversations(this.userId);
+    this.conversations = conversationsData ? Object.keys(conversationsData).map(key => ({ id: key, messages: conversationsData[key] })) : [];
+  }
+
+  selectConversation(conversationId: string) {
+    this.chatSelected.emit(conversationId);
+  }
 }

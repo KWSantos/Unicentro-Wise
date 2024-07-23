@@ -55,9 +55,10 @@ trainX = training[:, :len(words)]
 trainY = training[:, len(words):]
 
 model = tf.keras.Sequential()
-model.add(tf.keras.layers.Dense(128, input_shape=(len(trainX[0]),), activation = 'tanh'))
-model.add(tf.keras.layers.Dense(64, activation = 'tanh'))
-model.add(tf.keras.layers.Dense(64, activation = 'tanh'))
+model.add(tf.keras.layers.Dense(128, input_shape=(len(trainX[0]),), activation = 'relu'))
+model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(64, activation = 'relu'))
+model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(len(trainY[0]), activation='softmax'))
 
 adam = tf.keras.optimizers.Adam(learning_rate=0.01)

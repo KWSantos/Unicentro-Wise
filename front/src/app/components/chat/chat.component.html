@@ -1,73 +1,60 @@
-<!-- Html da tela em geral, aqui fica o HTML de tudo menos do chat e do footer!!! -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link href="chat.component.css" rel="stylesheet">
-
 </head>
 
 <body>
-  <!-- ======= Mobile nav toggle button ======= -->
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
-    <app-chat-history></app-chat-history>
-  </header><!-- End Header -->
-
-  <!-- ======= inicio Section ======= -->
-  <section id="inicio" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>UNICENTRO WISE</h1>
-      <p>Seu chatbot para dúvidas sobre a Universidade Estadual do Centro-Oeste</p>
-    </div>
-  </section><!-- End inicio -->
-
-  <main id="main">
-    <!-- ======= chatbot Section ======= -->
-    <section id="chatbot" class="chatbot">
-      <div class="container" data-aos="fade-up">
-        <div class="container bootstrap snippets bootdeys">
-          <!-- Panel Chat -->
-          <div class="panel" id="chat">
-            <div class="section-title">
-              <h2> Chat </h2>
-            </div>
-            <div class="panel-body" id="chat-content">
-              <div class="chats">
-                <div class="messsagesContainer" id="messsagesContainer" class="ps-container ps-theme-default ps-active-y" style="overflow-y: scroll !important; height:400px !important;">
-                  <!-- Essa é a tentativa de chamar o container do chat aqui pra dentro -->
-                  <app-chat-messages [messages]="messages"></app-chat-messages>
+  <div class="container">
+    <app-chat-history (chatSelected)="onChatSelected($event)"></app-chat-history>
+    <div class="chat-content">
+      <header id="header" class="d-flex flex-column justify-content-center">
+        <app-chat-history></app-chat-history>
+      </header>
+      <section id="inicio" class="d-flex flex-column justify-content-center">
+        <div class="container" data-aos="zoom-in" data-aos-delay="100">
+          <h1>UNICENTRO WISE</h1>
+          <p>Seu chatbot para dúvidas sobre a Universidade Estadual do Centro-Oeste</p>
+        </div>
+      </section>
+      <main id="main">
+        <section id="chatbot" class="chatbot">
+          <div class="container" data-aos="fade-up">
+            <div class="container bootstrap snippets bootdeys">
+              <div class="panel" id="chat">
+                <div class="section-title">
+                  <h2> Chat </h2>
+                </div>
+                <div class="panel-body" id="chat-content">
+                  <div class="chats">
+                    <div class="messsagesContainer" id="messsagesContainer" class="ps-container ps-theme-default ps-active-y" style="overflow-y: scroll !important; height:400px !important;">
+                      <app-chat-messages [messages]="messages"></app-chat-messages>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <app-chat-footer (sendMessageEvent)="sendMessage($event)"></app-chat-footer>
             </div>
           </div>
-          <!-- End Panel Chat -->
-          <app-chat-footer (sendMessageEvent)="sendMessage($event)"></app-chat-footer>
+        </section>
+      </main>
+      <footer id="footer">
+        <div class="container">
+          <h3>Créditos</h3>
+          <div class="social-links">
+            <a href="https://github.com/KWSantos" class="github"><i class="bx bxl-github"></i></a>
+            <a href="https://github.com/vborgex" class="github"><i class="bx bxl-github"></i></a>
+            <a href="https://github.com/LopesBrendinha" class="github"><i class="bx bxl-github"></i></a>
+          </div>
         </div>
-      </div>
-    </section>
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <h3>Créditos</h3>
-      <div class="social-links">
-        <a href="https://github.com/KWSantos" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://github.com/vborgex" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://github.com/LopesBrendinha" class="github"><i class="bx bxl-github"></i></a>
-      </div>
+      </footer>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </div>
 </body>
 
-  </html>
+</html>
