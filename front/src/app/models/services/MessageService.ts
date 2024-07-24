@@ -14,9 +14,14 @@ export class MessageService {
   }
 
   async getConversations(userId: string | undefined) {
-      const refUserMessages = ref(db, "messages/" + userId);
-      const snapshot = await get(refUserMessages);
-      return snapshot.val();
+    const refUserMessages = ref(db, "messages/" + userId);
+    const snapshot = await get(refUserMessages);
+    return snapshot.val();
   }
   
+  async getMessages(userId: string | undefined, conversationId: string) {
+    const refMessages = ref(db, `messages/${userId}/${conversationId}`);
+    const snapshot = await get(refMessages);
+    return snapshot.val() || [];
+  }
 }
