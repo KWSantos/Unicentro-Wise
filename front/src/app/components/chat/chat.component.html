@@ -9,18 +9,18 @@
 </head>
 
 <body>
-  <div class="container">
-    <app-chat-history (chatSelected)="onChatSelected($event)"></app-chat-history>
-    <div class="chat-content">
+    
       <header id="header" class="d-flex flex-column justify-content-center">
-        <app-chat-history></app-chat-history>
+        <app-chat-history (chatSelected)="onChatSelected($event)"></app-chat-history>
       </header>
+
       <section id="inicio" class="d-flex flex-column justify-content-center">
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
           <h1>UNICENTRO WISE</h1>
           <p>Seu chatbot para dúvidas sobre a Universidade Estadual do Centro-Oeste</p>
         </div>
       </section>
+
       <main id="main">
         <section id="chatbot" class="chatbot">
           <div class="container" data-aos="fade-up">
@@ -42,6 +42,7 @@
           </div>
         </section>
       </main>
+
       <footer id="footer">
         <div class="container">
           <h3>Créditos</h3>
@@ -53,8 +54,7 @@
         </div>
       </footer>
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    </div>
-  </div>
+
 </body>
 
 </html>

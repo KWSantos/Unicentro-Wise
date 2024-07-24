@@ -19,12 +19,12 @@
 </head>
 
 <body>
-  <div>
+  <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li *ngFor="let conversation of conversations">
-            <a (click)="selectConversation(conversation.id)"><i class="bx bx-message-square-dots"></i> <span>{{conversation.id}}</span></a>
+        <li *ngFor="let conversation of conversations | slice:0:5; let i=index">
+            <a (click)="selectConversation(conversation.id)"><i class="bx bx-message-square-dots"></i> <span>Chat {{i}}</span></a>
         </li>
         <li><a class="nav-link scrollto"><i class="bx bx-message-square-add"></i> <span>Nova conversa</span></a></li>
       </ul>
-    </div>
+  </nav>
 </body>
