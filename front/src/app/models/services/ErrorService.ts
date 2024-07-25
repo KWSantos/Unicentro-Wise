@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from "sweetalert2";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class ErrorService {
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor() {}
 
   private errorMessages: { [key: string]: string } = {
     'auth/invalid-email': 'O endereço de e-mail não é válido.',
@@ -24,11 +24,11 @@ export class ErrorService {
   }
 
   showError(message: string) {
-    this.snackBar.open(message, 'Fechar', {
-      duration: 5000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: ['error-snackbar']
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: message,
+      confirmButtonText: 'Fechar'
     });
   }
 }

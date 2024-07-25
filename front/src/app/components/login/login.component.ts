@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../models/services/AuthService';
-import { UserService } from '../../models/services/UserService';
 import { ErrorService } from '../../models/services/ErrorService';
 import { CommonModule } from '@angular/common';
 
@@ -40,4 +39,5 @@ export class LoginComponent {
       })
     }
   }
+  
 }
