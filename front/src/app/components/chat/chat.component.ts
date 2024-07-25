@@ -51,9 +51,8 @@ export class ChatComponent implements OnInit {
   }
 
   async loadMessages() {
-    if (!this.conversationId) return;
-
     this.messages = await this.messageService.getMessages(this.userId, this.conversationId);
+    console.log(this.messages)
   }
 
   async onChatSelected(conversationId: string) {
