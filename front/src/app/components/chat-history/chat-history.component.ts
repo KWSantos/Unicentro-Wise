@@ -31,6 +31,7 @@ export class ChatHistoryComponent implements OnInit {
   async ngOnInit() {
     const conversationsData = await this.messageService.getConversations(this.userId);
     this.conversations = conversationsData ? Object.keys(conversationsData).map(key => ({ id: key, messages: conversationsData[key] })) : [];
+    this.conversations.reverse();
   }
 
   selectConversation(conversationId: string) {
