@@ -31,28 +31,20 @@ export class ChatComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.route.params.subscribe(async params => {
-      this.conversationId = params['id'];
-      if (this.conversationId) {
-        await this.loadMessages();
-      } else {
-        this.conversationId = await this.messageService.startNewConversation(this.userId);
-        await this.loadMessages();
-      }
-    });
+    this.conversationId = await this.messageService.startNewConversation(this.userId);
+    await this.loadMessages();
   }
 
   async sendMessage(message: string) {
-    if (!this.conversationId) return;
-
     await this.userService.sendMessage(this.userId, message, this.conversationId);
+    await this.loadMessages();
     await this.chatService.sendMessage(this.userId, message, this.conversationId);
     await this.loadMessages();
   }
 
   async loadMessages() {
-    this.messages = await this.messageService.getMessages(this.userId, this.conversationId);
-    console.log(this.messages)
+    const conversations = await this.messageService.getConversations(this.userId);
+    this.messages = conversations ? Object.values(conversations[this.conversationId]) : [];
   }
 
   async onChatSelected(conversationId: string) {

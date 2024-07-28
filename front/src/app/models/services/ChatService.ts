@@ -21,6 +21,7 @@ export class ChatService {
         this.socket.emit('message', question);
         await new Promise<void>((resolve) => {
             this.socket.once('response', (data) => {
+                console.log(data.message)
                 this.response = data.message;
                 resolve();
             });
